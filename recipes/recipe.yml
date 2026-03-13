@@ -18,10 +18,6 @@ modules:
       packages:
         - kernel-bazzite
 
-  # Use Bazzite akmods for module compatibility
-  - type: akmods
-    base: bazzite
-
   # Add Gamescope session support
   - type: files
     files:
