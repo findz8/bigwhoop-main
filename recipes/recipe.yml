@@ -12,6 +12,10 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  # Swap the kernel to the Bazzite version
+  - type: akmods
+    base: bazzite  # This specifies the 'fsync-ba' kernel used by Bazzite
+    
   - type: files
     files:
       - source: system
