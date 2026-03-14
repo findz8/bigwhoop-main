@@ -7,8 +7,8 @@ base-image: ghcr.io/ublue-os/kinoite-main
 image-version: latest
 
 modules:
-  # Add the COPR repo that provides the Bazzite kernel
-  - type: rpm-repos
+    # Add the COPR repo that provides the Bazzite kernel
+  - type: rpm
     repos:
       - copr: it-kenzy/Bazzite-Kernel
 
@@ -17,14 +17,6 @@ modules:
     install:
       packages:
         - kernel-bazzite
-
-  # Add Gamescope session support
-  - type: files
-    files:
-      - source: gamescope-session/gamescope-session.desktop
-        destination: /usr/share/wayland-sessions/gamescope-session.desktop
-      - source: gamescope-session/gamescope-session.conf
-        destination: /etc/gamescope-session.conf
 
   - type: files
     files:
