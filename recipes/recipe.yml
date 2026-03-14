@@ -7,15 +7,7 @@ base-image: ghcr.io/ublue-os/kinoite-main
 image-version: latest
 
 modules:
-    # Add the COPR repo that provides the Bazzite kerne
-
-  # Install the Bazzite kernel package
-  - type: dnf
-    repos:
-        - copr: it-kenzy/Bazzite-Kernel
-    install:
-      packages:
-        - kernel-bazzite
+    # Add the COPR repo that provides the Bazzite kernel
 
   - type: files
     files:
