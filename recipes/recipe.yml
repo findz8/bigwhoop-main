@@ -3,7 +3,7 @@
 name: bigwhoop-main
 description: This is my personal OS image.
 
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 43
 
 modules:
@@ -18,18 +18,16 @@ modules:
     install:
       packages:
         - steam
-        - gnome-disk-utility
         - docker
         - distrobox
         - headsetcontrol
         - mangohud
         - gamescope
-        - rclone
     remove:
       packages:
         - firefox
         - firefox-langpacks
-        - plasma-discover
+        - gnome-software
         - toolbox
 
   - type: default-flatpaks
@@ -37,7 +35,6 @@ modules:
       - notify: true
         scope: system
         install:
-          - app.zen_browser.zen
           - com.discordapp.Discord
           - io.github.kolunmi.Bazaar
           - com.github.tchx84.Flatseal
@@ -50,7 +47,27 @@ modules:
           - org.mozilla.firefox
           - com.ranfdev.DistroShelf
           - org.gnome.Firmware
+          - org.gnome.Weather
+          - org.gnome.Calendar
+          - org.gnome.Evolution
+          - org.gnome.Loupe
+
       - scope: user
+
+    - type: gnome-extensions
+        install:
+          - 517
+          - 3193 # Notice how extension is named "Blur my Shell" & not "Blur My Shell"?
+          # Name is case-sensitive, so check if extension name is typed correctly
+          - 615
+          - 307 # Dash-to-Dock
+          - 4222
+          - 7065
+          # https://extensions.gnome.org/extension/307/dash-to-dock/
+          # You can also specify PK ID number from the extension URL,
+          # if you encounter the scenario where there are multiple extensions with the same name.
+          # You don't need to look & search for this scenario, since module will automatically fail & inform you to put PK ID number instead
+
 
   - type: brew
     nofile-limits: true
