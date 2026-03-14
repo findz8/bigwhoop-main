@@ -61,7 +61,15 @@ modules:
   - type: brew
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
-
+    
+  - type: gnome-extensions
+    install:
+      - 7065
+      - 517
+      - 4222
+      - 615
+      - 3193
+      
   - type: systemd
     # this example disables automatic flatpak updates and enables a custom service unit for all users
     system:
