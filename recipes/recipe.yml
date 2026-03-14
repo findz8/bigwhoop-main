@@ -30,29 +30,7 @@ modules:
         - gnome-software
         - toolbox
 
-  - type: default-flatpaks
-    configurations:
-      - notify: true
-        scope: system
-        install:
-          - com.discordapp.Discord
-          - io.github.kolunmi.Bazaar
-          - com.github.tchx84.Flatseal
-          - com.heroicgameslauncher.hgl
-          - net.lutris.Lutris
-          - com.usebottles.bottles
-          - org.gnome.baobab
-          - com.visualstudio.code
-          - org.freedesktop.Platform.ffmpeg-full
-          - org.mozilla.firefox
-          - com.ranfdev.DistroShelf
-          - org.gnome.Firmware
-          - org.gnome.Weather
-          - org.gnome.Calendar
-          - org.gnome.Evolution
-          - org.gnome.Loupe
-       - scope: user # Also add Flathub user repo, but no user packages
-        
+  
   - type: gnome-extensions
     install:
         - 517
@@ -65,8 +43,27 @@ modules:
         # https://extensions.gnome.org/extension/307/dash-to-dock/
         # You can also specify PK ID number from the extension URL,
         # if you encounter the scenario where there are multiple extensions with the same name.
-            # You don't need to look & search for this scenario, since module will automatically fail & inform you to put PK ID number instead
+        # You don't need to look & search for this scenario, since module will automatically fail & inform you to put PK ID number instead
             
+    - type: default-flatpaks
+      configurations:
+        - notify: true # Send notification after install/uninstall is finished (true/false)
+          scope: system
+          # If no repo information is specified, Flathub will be used by default
+          install: # system flatpaks we want all users to have and not remove
+            - com.discordapp.Discord
+            - io.github.kolunmi.Bazaar
+            - com.github.tchx84.Flatseal
+            - com.heroicgameslauncher.hgl
+            - net.lutris.Lutris
+            - com.usebottles.bottles
+            - org.gnome.baobab
+            - com.visualstudio.code
+            - org.freedesktop.Platform.ffmpeg-full
+            - org.mozilla.firefox
+            - com.ranfdev.DistroShelf
+            - org.gnome.Firmware
+         - scope: user # Also add Flathub user repo, but no user packages
   - type: brew
     nofile-limits: true
     brew-analytics: false
