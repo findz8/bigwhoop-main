@@ -61,9 +61,5 @@ modules:
       enabled:
         - docker.service
 
-  # Automatic cleanup to keep the image lean
-  - type: cleanup
-    aggressive: true
-
   - type: signing
   
