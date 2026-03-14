@@ -21,20 +21,18 @@ modules:
     install:
       packages:
         - steam
-        - gnome-disk-utility
         - docker
         - distrobox
         - headsetcontrol
         - mangohud
         - gamescope
-        - rclone
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-        - plasma-discover
+        - gnome-software
         - toolbox
         
   - type: default-flatpaks
@@ -43,7 +41,6 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - app.zen_browser.zen
           - com.discordapp.Discord
           - io.github.kolunmi.Bazaar
           - com.github.tchx84.Flatseal
@@ -56,7 +53,11 @@ modules:
           - org.mozilla.firefox
           - com.ranfdev.DistroShelf
           - org.gnome.Firmware
+          - org.gnome.Calendar
+          - org.gnome.Loupe
+          - org.gnome.Evolution
       - scope: user # Also add Flathub user repo, but no user packages
+      
   - type: brew
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
