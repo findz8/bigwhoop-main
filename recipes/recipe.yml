@@ -4,7 +4,7 @@ name: bigwhoop-main
 description: This is my personal OS image.
 
 base-image: ghcr.io/ublue-os/kinoite-main
-image-version: latest
+image-version: 43
 
 modules:
     # Add the COPR repo that provides the Bazzite kernel
